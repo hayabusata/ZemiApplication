@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import static android.R.attr.button;
+import static android.graphics.Color.RED;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
     //private MyApp myApp;
@@ -58,7 +59,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View v) {
         if (button.getText().equals("start")) {
-            setGame();
+            this.setGame();
         } else if (button.getText().equals("change")) {
             boolean[] myCheck = {checkBox1.isChecked(), checkBox2.isChecked(), checkBox3.isChecked(), checkBox4.isChecked(), checkBox5.isChecked()};
             myHand.changeHand(myCheck);
@@ -67,6 +68,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             yourHand.changeHand(check);
 
             myHand1.setText(String.format("%d", myHand.getHand(1)));
+            //myHand1.setBackgroundColor();
             myHand2.setText(String.format("%d", myHand.getHand(2)));
             myHand3.setText(String.format("%d", myHand.getHand(3)));
             myHand4.setText(String.format("%d", myHand.getHand(4)));
