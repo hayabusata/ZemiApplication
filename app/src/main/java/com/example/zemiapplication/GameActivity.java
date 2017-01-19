@@ -101,6 +101,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         myHand = new Poker(5);
         yourHand = new Poker(5);
 
+
         myHand1.setText(String.format("%d", myHand.getHand(1)));
         myHand2.setText(String.format("%d", myHand.getHand(2)));
         myHand3.setText(String.format("%d", myHand.getHand(3)));
