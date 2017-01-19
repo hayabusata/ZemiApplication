@@ -4,6 +4,8 @@ package com.example.zemiapplication;
  * Created by syunta on 2017/01/13.
  */
 
+import android.graphics.Color;
+
 import java.util.Random;
 
 public class Poker {
@@ -157,5 +159,41 @@ public class Poker {
         if (myResult > yourResult) return "あなたの勝ちです";
         else if (myResult == yourResult) return "引き分けです";
         return "相手の勝ちです";
+    }
+
+    public static int numToColor(int num) {
+        int color = Color.WHITE;
+
+        switch (num) {
+            case 1:
+                color = Color.RED;
+                break;
+            case 2:
+                color = Color.parseColor("#4169E1");
+                break;
+            case 3:
+                color = Color.GREEN;
+                break;
+            case 4:
+                color = Color.YELLOW;
+                break;
+            case 5:
+                color = Color.GRAY;
+                break;
+            case 6:
+                color = Color.CYAN;
+                break;
+            case 7:
+                color = Color.MAGENTA;
+                break;
+            case 8:
+                color = Color.parseColor("#F5DEB3");
+                break;
+            default:
+                color = Color.WHITE;
+                break;
+        }
+
+        return color;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.zemiapplication;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import static android.R.attr.button;
 import static android.graphics.Color.RED;
+import static com.example.zemiapplication.Poker.numToColor;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
     //private MyApp myApp;
@@ -68,17 +70,26 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             yourHand.changeHand(check);
 
             myHand1.setText(String.format("%d", myHand.getHand(1)));
-            //myHand1.setBackgroundColor();
+            myHand1.setBackgroundColor(numToColor(myHand.getHand(1)));
             myHand2.setText(String.format("%d", myHand.getHand(2)));
+            myHand2.setBackgroundColor(numToColor(myHand.getHand(2)));
             myHand3.setText(String.format("%d", myHand.getHand(3)));
+            myHand3.setBackgroundColor(numToColor(myHand.getHand(3)));
             myHand4.setText(String.format("%d", myHand.getHand(4)));
+            myHand4.setBackgroundColor(numToColor(myHand.getHand(4)));
             myHand5.setText(String.format("%d", myHand.getHand(5)));
+            myHand5.setBackgroundColor(numToColor(myHand.getHand(5)));
 
             yourHand1.setText(String.format("%d", yourHand.getHand(1)));
+            yourHand1.setBackgroundColor(numToColor(yourHand.getHand(1)));
             yourHand2.setText(String.format("%d", yourHand.getHand(2)));
+            yourHand2.setBackgroundColor(numToColor(yourHand.getHand(2)));
             yourHand3.setText(String.format("%d", yourHand.getHand(3)));
+            yourHand3.setBackgroundColor(numToColor(yourHand.getHand(3)));
             yourHand4.setText(String.format("%d", yourHand.getHand(4)));
+            yourHand4.setBackgroundColor(numToColor(yourHand.getHand(4)));
             yourHand5.setText(String.format("%d", yourHand.getHand(5)));
+            yourHand5.setBackgroundColor(numToColor(yourHand.getHand(5)));
 
             myResult = myHand.checkPrize();
             yourResult = yourHand.checkPrize();
@@ -101,18 +112,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         myHand = new Poker(5);
         yourHand = new Poker(5);
 
-
         myHand1.setText(String.format("%d", myHand.getHand(1)));
+        myHand1.setBackgroundColor(numToColor(myHand.getHand(1)));
         myHand2.setText(String.format("%d", myHand.getHand(2)));
+        myHand2.setBackgroundColor(numToColor(myHand.getHand(2)));
         myHand3.setText(String.format("%d", myHand.getHand(3)));
+        myHand3.setBackgroundColor(numToColor(myHand.getHand(3)));
         myHand4.setText(String.format("%d", myHand.getHand(4)));
+        myHand4.setBackgroundColor(numToColor(myHand.getHand(4)));
         myHand5.setText(String.format("%d", myHand.getHand(5)));
+        myHand5.setBackgroundColor(numToColor(myHand.getHand(5)));
 
         yourHand1.setText(String.format("%d", yourHand.getHand(1)));
+        yourHand1.setBackgroundColor(numToColor(yourHand.getHand(1)));
         yourHand2.setText(String.format("%d", yourHand.getHand(2)));
+        yourHand2.setBackgroundColor(numToColor(yourHand.getHand(2)));
         yourHand3.setText(String.format("%d", yourHand.getHand(3)));
+        yourHand3.setBackgroundColor(numToColor(yourHand.getHand(3)));
         yourHand4.setText(String.format("%d", yourHand.getHand(4)));
+        yourHand4.setBackgroundColor(numToColor(yourHand.getHand(4)));
         yourHand5.setText(String.format("%d", yourHand.getHand(5)));
+        yourHand5.setBackgroundColor(numToColor(yourHand.getHand(5)));
 
         textView.setText("入れ替えるカードを選択してください．");
         button.setText("change");
