@@ -1,6 +1,5 @@
 package com.example.zemiapplication;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,8 +29,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         myApp = (MyApp)getApplication();
         myApp.getLevel();
-        /*TextView textView = (TextView)findViewById(R.id.test);
-        textView.setText(String.format("%d", myApp.getLevel()));*/
 
         button = (Button)findViewById(R.id.gameButton);
         button.setOnClickListener(this);
