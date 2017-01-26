@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import static android.R.attr.button;
-import static android.graphics.Color.RED;
 import static com.example.zemiapplication.Poker.numToColor;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
@@ -56,12 +54,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         checkBox3 = (CheckBox)findViewById(R.id.check3);
         checkBox4 = (CheckBox)findViewById(R.id.check4);
         checkBox5 = (CheckBox)findViewById(R.id.check5);
-
     }
 
     public void onClick(View v) {
         if (button.getText().equals("start")) {
             this.setGame();
+
         } else if (button.getText().equals("change")) {
             boolean[] myCheck = {checkBox1.isChecked(), checkBox2.isChecked(), checkBox3.isChecked(), checkBox4.isChecked(), checkBox5.isChecked()};
             myHand.changeHand(myCheck);
@@ -95,6 +93,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             yourResult = yourHand.checkPrize();
             textView.setText(String.format("あなた:%s 相手:%s %s．"
                     , myHand.getPrizeString(myResult), yourHand.getPrizeString(yourResult), Poker.getWinner(myResult, yourResult)));
+            myHand.counter(myResult, yourResult);
 
             button.setText("retry");
         } else if (button.getText().equals("retry")) {
@@ -104,7 +103,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             checkBox4.setChecked(false);
             checkBox5.setChecked(false);
 
-            setGame();
+            this.setGame();
         }
     }
 
@@ -137,4 +136,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         textView.setText("入れ替えるカードを選択してください．");
         button.setText("change");
     }
+
+    /*protected void onPause(Bundle savedInstanceState) {
+        try {
+            File file = new File("pokerCount.txt");
+            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+
+            pw.print(String.format("%d,%d,%d,%d", myHand.getGameCount(), myHand.getWinCount(), myHand.getDrawCount(), myHand.getLoseCount()));
+            pw.close();
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+
+
+    }*/
 }

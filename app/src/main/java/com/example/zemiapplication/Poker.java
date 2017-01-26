@@ -11,6 +11,11 @@ import java.util.Random;
 public class Poker {
     private int[] hand;
 
+    private int gameCount;
+    private int winCount;
+    private int drawCount;
+    private int loseCount;
+
     //private int backColor1;
     //private int backColor2;
     //private int backColor3;
@@ -23,6 +28,11 @@ public class Poker {
         for (int i = 0; i < hand.length; i++) {
             hand[i] = ran.nextInt(8) + 1;
         }
+
+        gameCount = 0;
+        winCount = 0;
+        drawCount = 0;
+        loseCount = 0;
 
         //backColor1 = ran.nextInt(4);
         //backColor2 = ran.nextInt(4);
@@ -60,28 +70,6 @@ public class Poker {
                 change[i] = true;
             }
         } else if (level == 0) {    //level:normal
-            /*int i, j;
-            int[] count = new int[this.hand.length];
-            boolean check[][] = new boolean[this.hand.length][this.hand.length];
-            int base = 0, counter = 0;
-
-            for (i = 0; i < this.hand.length; i++) {
-                count[i] = 0;
-
-                for (j = 0; j < this.hand.length && j != i; j++) {
-                    if (this.hand[i] == this.hand[j]) {
-                        count[i]++;
-                        check[i][j] = false;
-                    } else {
-                        check[i][j] = true;
-                    }
-                }
-
-                if (count[i] > counter) base = i;
-            }
-
-            change = check[base];*/
-
             for (int i = 0; i < change.length; i++) {
                 change[i] = true;
             }
@@ -196,4 +184,45 @@ public class Poker {
 
         return color;
     }
+
+    public void counter(int myResult, int yourResult) {
+        gameCount++;
+
+        if (myResult > yourResult) winCount++;
+        else if (myResult == yourResult) drawCount++;
+        else if (myResult < yourResult) loseCount++;
+    }
+
+    public int getGameCount() {
+        return this.gameCount;
+    }
+
+    public int getWinCount() {
+        return this.winCount;
+    }
+
+    public int getDrawCount() {
+        return this.drawCount;
+    }
+
+    public int getLoseCount() {
+        return this.loseCount;
+    }
+
+    public void setGameCount(int num) {
+        this.gameCount = num;
+    }
+
+    public void setWinCount(int num) {
+        this.winCount = num;
+    }
+
+    public void setDrawCount(int num) {
+        this.drawCount = num;
+    }
+
+    public void setLoseCount(int num) {
+        this.loseCount = num;
+    }
+
 }
